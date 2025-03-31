@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-commerce Website Frontend
+
+This is a Next.js e-commerce frontend application that connects to a Node.js backend with Firebase authentication and PostgreSQL database.
+
+## Features
+
+- User authentication with Firebase (Email/Password and Google Sign-In)
+- Product browsing with filtering by category and price range
+- Shopping cart functionality (persisted in local storage for guest users)
+- Checkout process with shipping and payment information
+- Order history and tracking
+- Admin dashboard for product management (admin users only)
+
+## Tech Stack
+
+- **Framework**: Next.js
+- **UI Library**: Material UI
+- **Authentication**: Firebase Authentication
+- **State Management**: Zustand
+- **API Client**: Axios
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 14.x or later
+- npm or yarn
+- Firebase project
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/ecommerce-website.git
+cd ecommerce-website/frontend
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Create a `.env.local` file in the root directory with your Firebase configuration:
+
+```
+NEXT_PUBLIC_API_URL=http://localhost:3000/api
+NEXT_PUBLIC_FIREBASE_API_KEY=your-api-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-auth-domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
+```
+
+4. Start the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+frontend/
+├── public/
+├── src/
+│   ├── app/                  # Next.js app router pages
+│   ├── components/           # React components
+│   │   ├── auth/             # Authentication components
+│   │   ├── cart/             # Cart components
+│   │   ├── layout/           # Layout components
+│   │   └── products/         # Product components
+│   ├── context/              # React context providers
+│   ├── firebase/             # Firebase configuration
+│   ├── store/                # Zustand stores
+│   └── utils/                # Utility functions
+├── .env.local                # Environment variables
+├── next.config.js            # Next.js configuration
+└── package.json              # Project dependencies
+```
 
-## Learn More
+## Backend Integration
 
-To learn more about Next.js, take a look at the following resources:
+This frontend connects to a Node.js backend with the following features:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- RESTful API endpoints for products, cart, orders, etc.
+- Firebase Authentication for user management
+- PostgreSQL database for data storage
+- JWT tokens for API security
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+For more details, see the backend documentation.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This application can be deployed to Vercel, Netlify, or any other hosting service that supports Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+# or
+yarn build
+```
+
+## License
+
+This project is licensed under the MIT License.
